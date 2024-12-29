@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nusacode_flutter_3/pages/example_listview_separated_page.dart';
+import 'package:nusacode_flutter_3/pages/example_gridview_count_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ExampleListSeparatedPage(),
+      home: ExampleGridviewCountPage(),
     );
   }
 }
