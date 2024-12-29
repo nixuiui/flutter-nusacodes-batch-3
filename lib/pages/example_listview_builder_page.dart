@@ -59,6 +59,8 @@ class _ExampleListBuilderPageState extends State<ExampleListBuilderPage> {
         title: Text("Example ListView.builder() Page"),
       ),
       body: ListView.builder(
+        shrinkWrap: true,
+        physics: ClampingScrollPhysics(),
         padding: EdgeInsets.zero,
         itemCount: footballPlayers.length,
         itemBuilder: (context, index) {
