@@ -52,6 +52,16 @@ class _ExampleListBuilderPageState extends State<ExampleListBuilderPage> {
     "Kasper Schmeichel",
   ];
 
+  String? selectedPlayer;
+
+  @override
+  void didChangeDependencies() {
+    setState(() {
+      selectedPlayer = ModalRoute.of(context)!.settings.arguments as String?;
+    });
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +78,12 @@ class _ExampleListBuilderPageState extends State<ExampleListBuilderPage> {
             title: Text(footballPlayers[index]),
             subtitle: Text("Position: Forward"),
             leading: Icon(Icons.sports_soccer),
-            trailing: Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              Navigator.pop(context, footballPlayers[index]);
+            },
+            trailing: selectedPlayer == footballPlayers[index]
+                ? Icon(Icons.check)
+                : null,
           );
         },
       ),

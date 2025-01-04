@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nusacode_flutter_3/commons/extensions/context_extentions.dart';
+import 'package:nusacode_flutter_3/commons/extensions/int_extensions.dart';
+import 'package:nusacode_flutter_3/pages/bottom_navbar/bottom_navbar_page.dart';
 import 'package:nusacode_flutter_3/widgets/counter_text_widget.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -12,6 +15,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   late int _counter;
+  String? footballPlayer;
 
   void _incrementCounter() {
     setState(() {
@@ -38,26 +42,26 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                color: Colors.yellow,
-                child: Image.network(
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjHhzjvPjrR8zBEj7EU8EAeVUOaQyV_HIrYg&s",
-                  width: 100,
-                  height: 100,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Image.asset(
-                "assets/launcher.png",
-                width: 100,
-                height: 100,
-              ),
               CounterText(
                 counter: _counter,
                 onTap: (newCounter) => setState(() {
                   _counter = newCounter;
                 }),
               ),
+              40.height,
+              FilledButton(
+                  onPressed: () {
+                    context.push(const BottomNavbarPage());
+                  },
+                  child: Text("Bottom Navigation Bar")),
+              FilledButton(
+                  onPressed: () {
+                    context.pushNamed('/example-button');
+                  },
+                  child: Text("Example Button Page")),
+              FilledButton(
+                  onPressed: openFootballPlayersPage,
+                  child: Text("Footbal Players: $footballPlayer")),
             ],
           ),
         ),
@@ -66,5 +70,16 @@ class _MyHomePageState extends State<MyHomePage> {
           tooltip: 'Increment',
           child: const Icon(Icons.add),
         ));
+  }
+
+  void openFootballPlayersPage() async {
+    final result =
+        await context.pushNamed('/football-player', arguments: footballPlayer);
+
+    if (result != null) {
+      setState(() {
+        footballPlayer = result as String;
+      });
+    }
   }
 }
