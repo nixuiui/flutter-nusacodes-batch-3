@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nusacode_flutter_3/pages/example_button_page.dart';
-import 'package:nusacode_flutter_3/pages/example_listview_builder_page.dart';
-import 'package:nusacode_flutter_3/pages/my_home_page.dart';
+import 'package:nusacode_flutter_3/commons/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,13 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       initialRoute: '/',
-      routes: {
-        '/': (context) => const MyHomePage(
-              title: "Nusacode Flutter 3",
-            ),
-        '/example-button': (context) => ExampleButtonPage(),
-        '/football-player': (context) => ExampleListBuilderPage(),
-      },
+      routes: routes,
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nusacode_flutter_3/commons/extensions/context_extentions.dart';
 import 'package:nusacode_flutter_3/commons/extensions/int_extensions.dart';
+import 'package:nusacode_flutter_3/commons/routes.dart';
 import 'package:nusacode_flutter_3/pages/bottom_navbar/bottom_navbar_page.dart';
 import 'package:nusacode_flutter_3/widgets/counter_text_widget.dart';
 
@@ -56,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text("Bottom Navigation Bar")),
               FilledButton(
                   onPressed: () {
-                    context.pushNamed('/example-button');
+                    context.pushNamed(AppRoutes.exampleButton);
                   },
                   child: Text("Example Button Page")),
               FilledButton(
@@ -73,8 +74,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void openFootballPlayersPage() async {
-    final result =
-        await context.pushNamed('/football-player', arguments: footballPlayer);
+    final result = await context.pushNamed(AppRoutes.footballPlayer,
+        arguments: footballPlayer);
 
     if (result != null) {
       setState(() {
