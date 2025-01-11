@@ -37,6 +37,10 @@ dependencies:
   flutter_bloc: ^8.1.6
   equatable: ^2.0.7
   get: ^4.6.6
+  drift: ^2.23.1
+  sqflite: ^2.4.1
+  path_provider: ^2.1.5
+  drift_db_viewer: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +52,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  drift_dev: ^2.23.1
+  build_runner: ^2.4.14
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
